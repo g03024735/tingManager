@@ -1,7 +1,5 @@
 module.exports = function (app) {
-    app.get('/', function (req, res, next) {
-        res.render('index', {
-            message: 'Hello World!'
-        })
+    app.get('/', async (req, res) => {
+        res.render('index', {message: 'Hello World'})
     })
 }

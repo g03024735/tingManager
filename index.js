@@ -2,8 +2,13 @@ const express = require('express')
 const ejs = require('ejs')
 const path = require('path')
 const bodyParser = require('body-parser')
+const config = require('./config')
+const asyncify = require('express-asyncify')
 
-const app = express()
+require('mongoose').connect(config.mongoUrl, {useMongoClient: true})
+require('mongoose').Promise = global.Promise
+
+const app = asyncify(express());
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
