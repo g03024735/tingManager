@@ -1,4 +1,4 @@
-const {course: validateCourse} = require('../middleware/validate')
+const {course: validateCourse, voice: validateVoice} = require('../middleware/validate')
 const Course = require('../service/course')
 const Voice = require('../service/voice')
 const {validationResult} = require('express-validator/check')
@@ -10,7 +10,7 @@ module.exports = function (app) {
         if (!errors.isEmpty()) {
             return res.status(422).json({errors: errors.mapped()});
         }
-        Course.create(matchedData(req))
+        await Course.create(matchedData(req))
         res.redirect('/course')
     })
 
@@ -29,5 +29,14 @@ module.exports = function (app) {
             course,
             voices
         })
+    })
+    app.post('/course/:courseId/voice', validateVoice, async (req, res) => {
+        let {courseId} = req.params
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(422).json({errors: errors.mapped()});
+        }
+        await Voice.create(matchedData(req))
+        res.redirect(`/course/${courseId}/voice`)
     })
 }
