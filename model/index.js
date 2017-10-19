@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const {ObjectId} = require('mongoose').Schema.Types
 
 const CourseSchema = new Schema({
     name: String,
@@ -20,7 +21,25 @@ const CourseSchema = new Schema({
     versionKey: false
 })
 
+const VoiceSchema = new mongoose.Schema({
+    stage: Number,
+    title: String,
+    duration: Number,
+    fileKey: String,
+    attachKey: String,
+    publishTime: {
+        type: Date,
+        default: Date.now
+    },
+    course: ObjectId
+}, {
+    collection: 'voice',
+    versionKey: false
+})
+
+
 module.exports = {
-    Course: mongoose.model('Course', CourseSchema)
+    Course: mongoose.model('Course', CourseSchema),
+    Voice: mongoose.model('Voice', VoiceSchema)
 }
 

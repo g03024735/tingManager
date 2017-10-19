@@ -1,5 +1,6 @@
 const pinyin = require('pinyin')
 const {Course} = require('../model')
+const {ObjectId} = require('mongoose').Types
 
 module.exports = {
     async create(course) {
@@ -12,5 +13,10 @@ module.exports = {
     },
     async list(...arg) {
         return await Course.find(...arg)
+    },
+    async findOne(courseId) {
+        return await Course.findOne({
+            _id: ObjectId(courseId)
+        })
     }
 }
