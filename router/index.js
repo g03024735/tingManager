@@ -1,5 +1,7 @@
+
 module.exports = function (app) {
+    require('./course')(app)
     app.get('/', async (req, res) => {
-        res.render('index', {message: 'Hello World'})
+        res.redirect('/course')
     })
 }
