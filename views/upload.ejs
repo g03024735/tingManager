@@ -19,6 +19,12 @@
         </div>
     </div>
 </nav>
+<% if(link) { %>
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>路径: </strong> <%= link %>
+</div>
+<% } %>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h2 class="panel-title" style="margin-left: 20px">添加课程</h2>
@@ -34,7 +40,7 @@
             <div class="form-group">
                 <label for="expire" class="col-sm-2 control-label">expire:</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="expire" name="expire" placeholder="-1 | 0 | date.now + expire">
+                    <input type="text" class="form-control" id="expire" name="expire" placeholder="-1:永久 | 0:一次性 | expire:毫秒后">
                 </div>
             </div>
             <div class="form-group">
