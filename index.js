@@ -21,7 +21,7 @@ require('./router')(app)
 app.use(require('./middleware/logErrors'))
 app.use(require('./middleware/errorHandle'))
 
-const server = app.listen(3000, function () {
+const server = app.listen(process.env.PORT || 8088, function () {
     let host = server.address().address,
         port = server.address().port
 
