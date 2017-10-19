@@ -20,8 +20,8 @@ const upload = multer({
 module.exports = function (app) {
     app.get('/upload', async (req, res) => {
         const {query} = req
-        if (query.link)
-            query.link = base64url.decode(query.link)
+
+        query.link = query.link ? base64url.decode(query.link) : false
 
         res.render('upload', query)
     })
@@ -41,7 +41,7 @@ module.exports = function (app) {
         if (expire > 0)
             expire += Date.now()
 
-        let url = `${OSS.domain}:${OSS.port}/upload?expire=0&filename=${key}`
+        let url = `${OSS.domain}:${OSS.port}/upload?expire=0&filename=${key}&timestamp=${Date.now()}`
         url = sign(url, OSS.secretKey).getSignHref()
 
 
