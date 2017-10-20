@@ -5,6 +5,8 @@ const fs = require('fs')
 const path = require('path')
 const {OSS} = require('../config')
 const base64url = require('base64url')
+const promisify = require('util').promisify
+const unlink = promisify(fs.unlink)
 
 const upload = multer({
     storage: multer.diskStorage({
@@ -52,7 +54,7 @@ module.exports = function (app) {
                 files: fs.createReadStream(file.path)
             }
         })
-
+        await unlink(file.path)
         //redirect upload?link=xxx
         let accessUrl = sign(`${OSS.domain}:${OSS.port}/${key}?expire=${expire}&timestamp=${Date.now()}`, OSS.secretKey).getSignHref()
         res.redirect(`/upload?link=${base64url(accessUrl)}`)
