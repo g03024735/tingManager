@@ -70,7 +70,7 @@
                     <h3><%= course.name %></h3>
                     <h4><%= course.author %></h4>
                     <h5><%= course._id %></h5>
-                    <p style="display: -webkit-box;-webkit-line-clamp:4; -webkit-box-orient: vertical; overflow: hidden;-ms-text-overflow: ellipsis;text-overflow: ellipsis;"><%= course.description %></p>
+                    <p style="display: -webkit-box;-webkit-line-clamp:4; -webkit-box-orient: vertical; overflow: hidden;-ms-text-overflow: ellipsis;text-overflow: ellipsis;"><%= course.description.slice(0,100) + '...' %></p>
                     <p>
                         <a href="<%= `/course/${course._id}/voice` %>" class="btn btn-primary" role="button">发布音频</a>
                     </p>
@@ -84,11 +84,3 @@
 <script src="/js/jquery.js"></script>
 <script src="/js/bootstrap.js"></script>
 </html>
-.multiLineText {  /*设置文本为多行，如果超出长度用省略号代替*/
-24                 width: 200px;
-25                 word-break: break-all;
-26                 display: -webkit-box;
-27                 -webkit-line-clamp: 3;  /*限制在一个块元素显示的文本的行数*/
-28                 -webkit-box-orient: vertical;
-29                 overflow: hidden;
-30             }
