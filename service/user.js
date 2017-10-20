@@ -1,4 +1,5 @@
 const {User} = require('../model')
+const {ObjectId} = require('mongoose').Types
 
 module.exports = {
     async find(userId) {
@@ -16,7 +17,14 @@ module.exports = {
     async findOne() {
 
     },
-    async addCourse() {
-
+    async addCourse(_id, course) {
+        return await User.findOneAndUpdate(
+            {_id},
+            {
+                $addToSet: {
+                    order: ObjectId(course)
+                }
+            }
+        )
     }
 }
