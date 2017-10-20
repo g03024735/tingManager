@@ -39,12 +39,9 @@ const VoiceSchema = new mongoose.Schema({
 
 const UserSchema = new mongoose.Schema({
     _id: String,
-    lastSign: Date,
-    status: Number,
-    ctime: {
-        type: Date,
-        default: Date.now
-    },
+    lastSign: {type: Date, default: Date.now()},
+    status: {type: Number, default: 1},
+    ctime: {type: Date, default: Date.now},
     order: [ObjectId]
 }, {
     collection: 'user',

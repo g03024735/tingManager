@@ -9,7 +9,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand">Ting</a>
+            <a class="navbar-brand" href="/">Ting</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -91,7 +91,50 @@
         </div>
     </div>
 </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title" style="margin-left: 20px">添加用户</h2>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" method="post" action="/user">
+            <div class="form-group">
+                <label for="userId" class="col-sm-2 control-label">用户Id:</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="userId" name="userId" placeholder="点右侧按钮随机生成一个" aria-describedby="basic-addon2">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="btn_random_userId">随机</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">添加</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 <script src="/js/jquery.js"></script>
 <script src="/js/bootstrap.js"></script>
+<script>
+    function randomString(len) {
+        len = len || 32;
+        var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+        /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+        var maxPos = $chars.length;
+        var pwd = '';
+        for (i = 0; i < len; i++) {
+            pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+        }
+        return pwd;
+    }
+
+
+    $('#btn_random_userId').click(function () {
+        $('#userId').val(randomString(30))
+    })
+</script>
 </html>

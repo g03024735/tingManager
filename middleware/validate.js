@@ -16,7 +16,12 @@ const voice = [
     check('course').trim().isMongoId()
 ]
 
+const user = [
+    check('userId').trim().isLength({min: 30})
+]
+
 module.exports = {
     course,
-    voice
+    voice,
+    user
 }
