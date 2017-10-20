@@ -65,7 +65,7 @@
         <% for(var i = 0, course; course = courses[i++];) { %>
         <div class="col-md-3">
             <div class="thumbnail">
-                <img src="/img/zhuoke.jpg" alt=" <%= course.name %>">
+                <img src="<%= course.cover %>" alt=" <%= course.name %>">
                 <div class="caption">
                     <h3><%= course.name %></h3>
                     <h4><%= course.author %></h4>
