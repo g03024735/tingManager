@@ -36,6 +36,7 @@ module.exports = function (app) {
         if (!course) {
             throw new Error('course not found')
         }
+        await User.addCourse(userId,courseId)
         res.redirect(`/user?userId=${userId}`)
     })
 }
