@@ -37,9 +37,23 @@ const VoiceSchema = new mongoose.Schema({
     versionKey: false
 })
 
+const UserSchema = new mongoose.Schema({
+    _id: String,
+    lastSign: Date,
+    status: Number,
+    ctime: {
+        type: Date,
+        default: Date.now
+    },
+    order: [ObjectId]
+}, {
+    collection: 'user',
+    versionKey: false
+})
 
 module.exports = {
     Course: mongoose.model('Course', CourseSchema),
-    Voice: mongoose.model('Voice', VoiceSchema)
+    Voice: mongoose.model('Voice', VoiceSchema),
+    User: mongoose.model('User', UserSchema)
 }
 
