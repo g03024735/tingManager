@@ -48,9 +48,21 @@ const UserSchema = new mongoose.Schema({
     versionKey: false
 })
 
+const CommentSchema = new mongoose.Schema({
+    userId: String,
+    content: String,
+    ctime: {type: Date, default: Date.now},
+    handle: {type: Boolean, default: false},
+    htime: {type: Date}
+}, {
+    collection: 'comment',
+    versionKey: false
+})
+
 module.exports = {
     Course: mongoose.model('Course', CourseSchema),
     Voice: mongoose.model('Voice', VoiceSchema),
-    User: mongoose.model('User', UserSchema)
+    User: mongoose.model('User', UserSchema),
+    Comment: mongoose.model('Comment', CommentSchema)
 }
 
