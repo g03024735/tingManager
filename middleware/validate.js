@@ -11,8 +11,8 @@ const course = [
 const voice = [
     check('title').trim().exists(),
     check('duration').trim().toInt().isInt(),
-    check('voice').trim().exists(),
-    check('manuscripts').trim().exists(),
+    check('voice').trim(),
+    check('manuscripts').trim(),
     check('course').trim().isMongoId()
 ]
 

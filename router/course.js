@@ -36,6 +36,9 @@ module.exports = function (app) {
         if (!errors.isEmpty()) {
             return res.status(422).json({errors: errors.mapped()});
         }
+        
+        console.log(matchedData(req))
+
         await Voice.create(matchedData(req))
         res.redirect(`/course/${courseId}/voice`)
     })
