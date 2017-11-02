@@ -3,7 +3,8 @@ const Schema = mongoose.Schema
 const {ObjectId} = require('mongoose').Schema.Types
 
 const CourseSchema = new Schema({
-    name: String,
+    title: String,
+    subtitle: String,
     author: String,
     publish: {
         type: Date,

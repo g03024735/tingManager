@@ -7,7 +7,7 @@ module.exports = {
         let initial = (pinyin(course.name, {
             style: pinyin.STYLE_FIRST_LETTER,
             heteronym: false
-        }))[0][0].toUpperCase()
+        }))[0][0].toUpperCase().slice(0,1)
         course.initial = initial
         return await Course.create(course)
     },
