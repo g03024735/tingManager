@@ -30,4 +30,7 @@ const server = app.listen(process.env.PORT || 8088, function () {
         port = server.address().port
 
     console.log(`ting Manager listening at http://${host}:${port}`)
+    console.log('============  config  ============')
+    console.log(config)
+    console.log('==================================')
 })
