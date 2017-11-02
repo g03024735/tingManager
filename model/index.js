@@ -23,11 +23,10 @@ const CourseSchema = new Schema({
 })
 
 const VoiceSchema = new mongoose.Schema({
-    stage: Number,
     title: String,
+    voice: String,
     duration: Number,
-    fileKey: String,
-    attachKey: String,
+    manuscripts: String,
     publishTime: {
         type: Date,
         default: Date.now

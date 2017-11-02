@@ -9,11 +9,10 @@ const course = [
 ]
 
 const voice = [
-    check('stage').trim().toInt().isInt(),
     check('title').trim().exists(),
     check('duration').trim().toInt().isInt(),
-    check('fileKey').trim().exists(),
-    check('attachKey').trim().exists(),
+    check('voice').trim().exists(),
+    check('manuscripts').trim().exists(),
     check('course').trim().isMongoId()
 ]
 
