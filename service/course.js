@@ -4,7 +4,7 @@ const {ObjectId} = require('mongoose').Types
 
 module.exports = {
     async create(course) {
-        let initial = (pinyin(course.name, {
+        let initial = (pinyin(course.title, {
             style: pinyin.STYLE_FIRST_LETTER,
             heteronym: false
         }))[0][0].toUpperCase().slice(0,1)
