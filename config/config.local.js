@@ -1,8 +1,8 @@
 module.exports = {
     mongoUrl: 'mongodb://localhost/ting',
     OSS: {
-        domain: 'http://192.168.155.2',
+        domain: 'http://121.41.32.148',
         port: 8000,
-        secretKey: '04taMi2QtiYVT7FR'
+        secretKey: 'omBkEPo3klf3z57VWUOa'
     }
 }

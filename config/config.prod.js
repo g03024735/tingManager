@@ -3,6 +3,6 @@ module.exports = {
     OSS: {
         domain: 'http://121.41.32.148',
         port: 8000,
-        secretKey: '04taMi2QtiYVT7FR'
+        secretKey: 'omBkEPo3klf3z57VWUOa'
     }
 }
