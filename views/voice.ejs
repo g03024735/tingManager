@@ -50,8 +50,8 @@
         <% for(var i = 0, voice;voice = voices[i++];){ %>
         <tr>
             <td><%= voice.title %></td>
-            <td><%= voice.duration %></td>
-            <td><%= voice.voice %></td>
+            <td><%= voice.duration || '空' %></td>
+            <td><%= voice.voice || '无' %></td>
             <td><%= voice.manuscripts || '无' %></td>
             <td><%= voice.publishTime.toLocaleString() %></td>
         </tr>
