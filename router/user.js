@@ -5,6 +5,17 @@ const {validationResult} = require('express-validator/check')
 const {matchedData} = require('express-validator/filter')
 
 module.exports = function (app) {
+    app.get('/login', async (req, res) => {
+        res.render('login', {data: req.query})
+    })
+    app.post('/login', async (req, res) => {
+        if (req.body.username === 'jiangliqing' && req.body.password === 'jiangliqing') {
+            req.session.user = req.body
+            return res.redirect('/')
+        } else {
+            return res.redirect('/login?code=1')
+        }
+    })
     app.get('/user', async (req, res) => {
         let {userId} = req.query
         let users
@@ -36,7 +47,7 @@ module.exports = function (app) {
         if (!course) {
             throw new Error('course not found')
         }
-        await User.addCourse(userId,courseId)
+        await User.addCourse(userId, courseId)
         res.redirect(`/user?userId=${userId}`)
     })
 }

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ting Manager</title>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        background-color: white;
+    }
+    .mycenter{
+        margin-top: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 350px;
+        width:500px;
+        padding: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .mycenter mysign{
+        width: 440px;
+    }
+    .mycenter input,checkbox,button{
+        margin-top:2%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .error{
+        margin-top:10px;
+        margin-left: 40px;
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+<form action="/login" method="post">
+    <div class="mycenter">
+        <div class="mysign">
+            <div class="col-lg-11 text-center text-info">
+                <h2>Ting</h2>
+            </div>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" name="username" placeholder="请输入账户名" required autofocus/>
+            </div>
+            <div class="col-lg-10"></div>
+            <div class="col-lg-10">
+                <input type="password" class="form-control" name="password" placeholder="请输入密码" required autofocus/>
+            </div>
+            <div class="col-lg-10"></div>
+            <div class="col-lg-10">
+                <% if(data.code == 1) { %>
+                    <div class="alert alert-danger error" role="alert">账号或密码错误</div>
+                <% } %>
+            </div>
+            <div class="col-lg-10">
+                <input type="submit" class="btn btn-success col-lg-12" value="登录">
+            </div>
+
+        </div>
+    </div>
+</form>
+</body>
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script>
+</script>
+</html>
