@@ -1,5 +1,5 @@
 module.exports = {
-    mongoUrl: 'mongodb://192.168.155.2/ting',
+    mongoUrl: 'mongodb://localhost/ting',
     OSS: {
         domain: 'http://192.168.155.2',
         port: 8000,
