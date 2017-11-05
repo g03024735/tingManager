@@ -49,7 +49,9 @@ module.exports = function (app) {
 
 
         let form = new FormData()
-        form.append('files', fs.createReadStream(file.path));
+        form.append('files', fs.createReadStream(file.path), {
+            knownLength: file.size
+        });
         let body = await got.post(url, {
             body: form
         });
