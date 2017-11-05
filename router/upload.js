@@ -1,6 +1,6 @@
 const multer = require('multer')
-const got = require('got');
-const FormData = require('form-data');
+const got = require('got')
+const FormData = require('form-data')
 const sign = require('../lib/sign')
 const fs = require('fs')
 const path = require('path')
@@ -47,16 +47,14 @@ module.exports = function (app) {
         let url = `${OSS.domain}:${OSS.port}/upload?expire=0&filename=${key}&timestamp=${Date.now()}`
         url = sign(url, OSS.secretKey).getSignHref()
 
-
         let form = new FormData()
-        form.append('files', fs.createReadStream(file.path), {
-            knownLength: file.size
-        });
+        form.append('files', fs.createReadStream(file.path))
+        //upload oss
         let body = await got.post(url, {
             body: form
-        });
-        //upload oss
-        console.log(body)
+        })
+
+        //delete temp file
         await unlink(file.path)
         //redirect upload?link=xxx
         let accessUrl = sign(`${OSS.domain}:${OSS.port}/${key}?expire=${expire}&timestamp=${Date.now() + Math.random().toString().slice(2, 12) }`, OSS.secretKey).getSignHref()
